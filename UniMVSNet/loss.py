@@ -7,7 +7,7 @@ def mvs_loss(inputs, depth_gt_ms, mask_ms, mode, **kwargs):
     total_loss = torch.tensor(0.0, dtype=torch.float32, device=mask_ms["stage1"].device, requires_grad=False)
 
     for (stage_inputs, stage_key) in [(inputs[k], k) for k in inputs.keys() if "stage" in k]:
-        prob_volume = stage_inputs["prob_volume"]  # (b, d, h, w)
+        prob_volume = stage_inputs["prob_volume"]  # (b, d, h, w)or
         depth_est = stage_inputs["depth"]  # (b, h, w)
         depth_values = stage_inputs["depth_values"]  # (b, d, h, w)
         interval = stage_inputs["interval"]  # float
